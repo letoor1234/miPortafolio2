@@ -1,7 +1,7 @@
 html{
     scroll-behavior: smooth;
 }
-
+$color-base: #7acaff;
 *{
     margin: 0;
     padding: 0;
@@ -11,16 +11,32 @@ html{
 hr{
     width: 90%;
     margin: .5em auto;
-    color: #7acaff;
+    color: $color-base;
 }
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 body{
     width: calc(100vw - (100vw - 100%));
     background-color: black;
-    color: #7acaff;
+    color: $color-base;
     font-family: 'Roboto Mono', monospace;
     font-size: 3.4vw;
     position: relative;
+}
+#load-veil{
+    position: absolute;
+    background-color: black;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 500;
+    h2{
+        color: $color-base;
+        width:100%;
+        position: absolute;
+        top: 50%;
+        text-align:center;
+    }
 }
 h1, h2, h3{
     font-weight: 800;
@@ -60,7 +76,7 @@ canvas{
 }
 
 .side-nav{
-    background-color: lighten(black, 15%);
+    background-color: lighten(black, 20%);
     border-radius: 4px 0 0 8px;
     z-index:10;
     position: fixed;
@@ -81,7 +97,7 @@ canvas{
         width: 2.5em;
         height: 2.5em;
         left: -2.4em;
-        background-color: lighten(black, 15%);
+        background-color: lighten(black, 20%);
         border-top-left-radius: 50%;
         border-bottom-left-radius: 50%;
         &::before{
@@ -94,7 +110,7 @@ canvas{
             top: -100%;
             right: 0;
             border-radius:0 0 75% 0;
-            box-shadow: 0 1.4em 0 0 lighten(black, 15%);
+            box-shadow: 0 1.4em 0 0 lighten(black, 20%);
         }
         &::after{
             content: '';
@@ -106,15 +122,64 @@ canvas{
             bottom: -100%;
             right: 0;
             border-radius:0 75% 0 0;
-            box-shadow: 0 -1.4em 0 0 lighten(black, 15%);
+            box-shadow: 0 -1.4em 0 0 lighten(black, 20%);
         }
     }
     a{
         width: 2em;
         height: 2em;
         margin: auto;
-        background-color: rgba(0,0,0,.3);
+        background-color: rgba(0,0,0,.4);
         border-radius: 4px; 
+        position: relative;
+        transition: all 1s;
+        &:hover{
+            background-color: rgba(0,0,0,.8);
+        }
+    }
+    #about-nav::after{
+        position: absolute;
+        top:0;
+        left:0;
+        width: 2em;
+        height: 2em;
+        content: '';
+        background-image: url(../rsc/about.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    #skills-nav::after{
+        position: absolute;
+        top:0;
+        left:0;
+        width: 2em;
+        height: 2em;
+        content: '';
+        background-image: url(../rsc/skills.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    #works-nav::after{
+        position: absolute;
+        top:0;
+        left:0;
+        width: 2em;
+        height: 2em;
+        content: '';
+        background-image: url(../rsc/works.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    #contact-nav::after{
+        position: absolute;
+        top:0;
+        left:0;
+        width: 2em;
+        height: 2em;
+        content: '';
+        background-image: url(../rsc/contact.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
     }
 }
 .x-icon{
@@ -253,7 +318,7 @@ main{
         margin: auto;
         justify-content: space-between;
         article{
-            background-color: #7acaff;
+            background-color: $color-base;
             color: black;
             padding: 1em;
             border-radius: 2px;
@@ -358,17 +423,38 @@ main{
         justify-content: space-around;
         a{
             text-decoration: none;
-            border-bottom: solid 3px #7acaff;
-            padding-bottom: .3em;
-            color: #7acaff;
+            padding: .8em;
+            padding-top: .4em;
+            padding-bottom: 1.3em;
+            background-color: rgba(122, 202, 255,
+            .4 );
+            color: black;
             display: inline-block;
             margin: auto;
+            transition: all 1s;
+            position: relative;
+            &::after{
+                content: '';
+                background-color: black;
+                position: absolute;
+                bottom: calc(20% - .3em);
+                left: calc(50% - .3em);
+                width: .6em;
+                height: .6em;
+                transform: rotate(0deg);
+                border-radius: 50%;
+                transition: all 1s;
+            }
             &:active{
-                color: #7acaff;
+                background-color: $color-base;
             } 
             &:hover{
-                color: #7acaff;
+                background-color: $color-base;
                 cursor:pointer;
+                &::after{
+                    border-radius: 0%;
+                    transform: rotate(45deg);
+                }
             }
         }
     }

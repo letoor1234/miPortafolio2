@@ -25,6 +25,24 @@ body {
   position: relative;
 }
 
+#load-veil {
+  position: absolute;
+  background-color: black;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
+}
+
+#load-veil h2 {
+  color: #7acaff;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  text-align: center;
+}
+
 h1, h2, h3 {
   font-weight: 800;
 }
@@ -66,7 +84,7 @@ canvas {
 }
 
 .side-nav {
-  background-color: #262626;
+  background-color: #333333;
   border-radius: 4px 0 0 8px;
   z-index: 10;
   position: fixed;
@@ -89,7 +107,7 @@ canvas {
   width: 2.5em;
   height: 2.5em;
   left: -2.4em;
-  background-color: #262626;
+  background-color: #333333;
   border-top-left-radius: 50%;
   border-bottom-left-radius: 50%;
 }
@@ -104,7 +122,7 @@ canvas {
   top: -100%;
   right: 0;
   border-radius: 0 0 75% 0;
-  box-shadow: 0 1.4em 0 0 #262626;
+  box-shadow: 0 1.4em 0 0 #333333;
 }
 
 .side-nav label::after {
@@ -117,15 +135,69 @@ canvas {
   bottom: -100%;
   right: 0;
   border-radius: 0 75% 0 0;
-  box-shadow: 0 -1.4em 0 0 #262626;
+  box-shadow: 0 -1.4em 0 0 #333333;
 }
 
 .side-nav a {
   width: 2em;
   height: 2em;
   margin: auto;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.4);
   border-radius: 4px;
+  position: relative;
+  transition: all 1s;
+}
+
+.side-nav a:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.side-nav #about-nav::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2em;
+  height: 2em;
+  content: '';
+  background-image: url(../rsc/about.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.side-nav #skills-nav::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2em;
+  height: 2em;
+  content: '';
+  background-image: url(../rsc/skills.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.side-nav #works-nav::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2em;
+  height: 2em;
+  content: '';
+  background-image: url(../rsc/works.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.side-nav #contact-nav::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2em;
+  height: 2em;
+  content: '';
+  background-image: url(../rsc/contact.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .x-icon {
@@ -407,20 +479,42 @@ main h1 {
 
 #contact .row a {
   text-decoration: none;
-  border-bottom: solid 3px #7acaff;
-  padding-bottom: .3em;
-  color: #7acaff;
+  padding: .8em;
+  padding-top: .4em;
+  padding-bottom: 1.3em;
+  background-color: rgba(122, 202, 255, 0.4);
+  color: black;
   display: inline-block;
   margin: auto;
+  transition: all 1s;
+  position: relative;
+}
+
+#contact .row a::after {
+  content: '';
+  background-color: black;
+  position: absolute;
+  bottom: calc(20% - .3em);
+  left: calc(50% - .3em);
+  width: .6em;
+  height: .6em;
+  transform: rotate(0deg);
+  border-radius: 50%;
+  transition: all 1s;
 }
 
 #contact .row a:active {
-  color: #7acaff;
+  background-color: #7acaff;
 }
 
 #contact .row a:hover {
-  color: #7acaff;
+  background-color: #7acaff;
   cursor: pointer;
+}
+
+#contact .row a:hover::after {
+  border-radius: 0%;
+  transform: rotate(45deg);
 }
 
 @media all and (orientation: landscape) {

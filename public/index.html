@@ -7,7 +7,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/style.min.css">
 </head>
-<body>
+<body onload='isLoaded()'>
+    <div id='load-veil'>
+        <h2>Loading...</h2>
+    </div>
     <main>
         <canvas id='canvas' class='canvas'></canvas>
         <h1>Hi! I'm Angel Martinez and I develop Web Apps</h1>
@@ -18,10 +21,10 @@
         <label for="open-nav">
             <div class="x-icon">+</div>
         </label>
-        <a href="#about"></a>
-        <a href="#skills"></a>
-        <a href="#works"></a>
-        <a href="#contact"></a>
+        <a id='about-nav'href="#about"></a>
+        <a id='skills-nav'href="#skills"></a>
+        <a id='works-nav'href="#works"></a>
+        <a id='contact-nav'href="#contact"></a>
     </nav>
 
     <section id='about'>
@@ -191,5 +194,6 @@
 
     <script src="js/mainCanvas.js"></script>
     <script src="js/mobileSupport.js"></script>
+    <script src="js/loading.js"></script>
 </body>
 </html>
