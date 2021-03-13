@@ -1,0 +1,505 @@
+html{
+    scroll-behavior: smooth;
+}
+$color-base: #7acaff;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-clip: border-box;
+}
+hr{
+    width: 90%;
+    margin: .5em auto;
+    color: $color-base;
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+body{
+    width: calc(100vw - (100vw - 100%));
+    background-color: black;
+    color: $color-base;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 3.4vw;
+    position: relative;
+}
+#load-veil{
+    position: absolute;
+    background-color: black;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 500;
+    h2{
+        color: $color-base;
+        width:100%;
+        position: absolute;
+        top: 50%;
+        text-align:center;
+    }
+}
+h1, h2, h3{
+    font-weight: 800;
+}
+canvas{
+    background-color: black;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+.down-arrow{
+    display: block;
+    position: absolute;
+    bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5em;
+    height: 5em;
+    transition: all .4s;
+    &::after{
+        content: '';
+        background-image: url(../rsc/down-arrow.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        display: block;
+        
+    }
+    &:hover{
+        width: 6em;
+        height: 6em;
+    }
+}
+
+.side-nav{
+    background-color: lighten(black, 20%);
+    border-radius: 4px 0 0 8px;
+    z-index:10;
+    position: fixed;
+    top: 50vh;
+    transform: translateY(-50%);
+    right: -3em;
+    width: 3em;
+    height: 12em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    transition: all 1s;
+    opacity: .5;
+    label{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 2.5em;
+        height: 2.5em;
+        left: -2.4em;
+        background-color: lighten(black, 20%);
+        border-top-left-radius: 50%;
+        border-bottom-left-radius: 50%;
+        &::before{
+            content: '';
+            z-index: 15;
+            position: absolute;
+            width: 1.25em;
+            height: 2.5em;
+            background-color: transparent;
+            top: -100%;
+            right: 0;
+            border-radius:0 0 75% 0;
+            box-shadow: 0 1.4em 0 0 lighten(black, 20%);
+        }
+        &::after{
+            content: '';
+            z-index: 15;
+            position: absolute;
+            width: 1.25em;
+            height: 2.5em;
+            background-color: transparent;
+            bottom: -100%;
+            right: 0;
+            border-radius:0 75% 0 0;
+            box-shadow: 0 -1.4em 0 0 lighten(black, 20%);
+        }
+    }
+    a{
+        width: 2em;
+        height: 2em;
+        margin: auto;
+        background-color: rgba(0,0,0,.4);
+        border-radius: 4px; 
+        position: relative;
+        transition: all 1s;
+        &:hover{
+            background-color: rgba(0,0,0,.8);
+        }
+    }
+    #about-nav::after{
+        position: absolute;
+        top:0;
+        left:0;
+        width: 2em;
+        height: 2em;
+        content: '';
+        background-image: url(../rsc/about.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    #skills-nav::after{
+        position: absolute;
+        top:0;
+        left:0;
+        width: 2em;
+        height: 2em;
+        content: '';
+        background-image: url(../rsc/skills.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    #works-nav::after{
+        position: absolute;
+        top:0;
+        left:0;
+        width: 2em;
+        height: 2em;
+        content: '';
+        background-image: url(../rsc/works.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    #contact-nav::after{
+        position: absolute;
+        top:0;
+        left:0;
+        width: 2em;
+        height: 2em;
+        content: '';
+        background-image: url(../rsc/contact.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+}
+.x-icon{
+    z-index: 100; 
+    width: 75%;
+    height: 75%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 2em;
+    line-height: .75em;
+    transition: all 1s;
+}
+input[type=checkbox]{
+    display: none;
+    &:checked~nav{
+        opacity: 1;
+        right: 0;
+        label .x-icon{
+            transform: translate(-50%, -50%) rotate(-315deg);
+            color: #ff726e;
+        }
+    }
+}
+
+main, section{
+    position: relative;
+    width: 100%;
+    padding: 1.7em;
+    padding-bottom: 6em;
+    min-height: 100vh;
+}
+main{
+    h1{
+        padding: 1.3em;
+        background-color: rgba(0,0,0,.8);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+    }
+}
+.left{
+    float: left;
+}
+.right{ 
+    float: right;
+}
+#about{
+    background-color: lighten(black, 5%);
+    margin: 1em auto;
+    width: 95%;
+    border-radius:16px;
+
+    h3{
+        text-align:center;
+    }
+    p{
+        text-indent: 1em;
+        margin-bottom: 1em;
+    }
+}
+#skills{
+    h3{
+        text-align: center;
+        clear: both;
+    }
+    .hard{
+        display: flex;
+        flex-wrap: wrap;
+        article{
+            width: 15em;
+            height: 15em;
+            background-color: lighten(black, 10%);
+            padding: .8em;
+            margin: 1em auto;
+            position: relative;
+            p{
+                text-align: center;
+                display: block;
+                margin: .5em auto;
+            }
+            &::after{
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                background-size: cover;
+                background-repeat: no-repeat;
+                transition: all 1s;
+            }
+            &:hover{
+                &::after{
+                    left: 100%;
+                }
+            }
+        }
+        #html::after{
+            background-image: url("../rsc/html5.png");
+        }
+        #react::after{
+            background-image: url("../rsc/react.png");
+        }
+        #node::after{
+            background-image: url("../rsc/node.png");
+        }
+        #mongo::after{
+            background-image: url("../rsc/mongo.png");
+        }
+        #php::after{
+            background-image: url("../rsc/php.png");
+        }
+        #mysql::after{
+            background-image: url("../rsc/mysql.png");
+        }
+        #git::after{
+            background-image: url("../rsc/git.png");
+        }
+        margin-bottom: 3em;
+    }
+    ul{
+        width: 90%;
+        margin: auto;
+        list-style: none;
+        margin-bottom: 3em;
+        li{
+            text-align: center;
+        }
+    }
+    .learn{
+        display: flex;
+        width: 90%;
+        margin: auto;
+        justify-content: space-between;
+        article{
+            background-color: $color-base;
+            color: black;
+            padding: 1em;
+            border-radius: 2px;
+        }
+    }
+}
+#works{
+    background-color: lighten(black, 5%);
+    margin: 1em auto;
+    width: 95%;
+    border-radius:16px;
+    h3{
+        text-align: center;
+        clear: both;
+    }
+    .works{
+        display: flex;
+        flex-wrap: wrap;
+        article{
+            width: 20em;
+            height: 25em;
+            background-color: lighten(black, 10%);
+            padding: 1.5em;
+            padding-top: 2em;
+            margin: 1em auto;
+            position: relative;
+            p{
+                text-align: center;
+                display: block;
+                margin: .5em auto;
+            }
+            nav{
+                position: absolute;
+                bottom: 1em;
+                width:80%;
+                margin: auto;
+                display: flex;
+                justify-content: space-between;
+                .git-link, .web-link{
+                    display: inline-block;
+                    width: 3em;
+                    height: 3em;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                }
+                .git-link{
+                    background-image: url(../rsc/github-icon.svg);
+                    
+                }
+                .web-link{
+                    background-image: url(../rsc/url-icon.svg);
+                }
+            }
+            &::after{
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                background-size: 20em 25em;
+                background-repeat: no-repeat;
+                background-position: center;
+                transition: all 1s;
+            }
+            &:hover{
+                &::after{
+                    left: 100%;
+                }
+            }
+        }
+        #realtchat::after{
+            background-image: url('../rsc/jobs/soketchat.png');           
+        }
+        #poster::after{
+            background-image: url('../rsc/jobs/poster.png');
+        }
+        #reglog::after{
+            background-image: url('../rsc/jobs/reglog.png');
+        }
+        #cleanmemesearcher::after{
+            background-image: url('../rsc/jobs/memesearcher.png');
+        }
+        #the8a::after{
+            background-image: url('../rsc/jobs/the8a.png');
+        }
+        #myportfolio::after{
+            background-image: url('../rsc/jobs/portfolio.png');
+        }
+    }
+}
+#contact{
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width:100%;
+    .row{
+        width: 100%;
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        a{
+            text-decoration: none;
+            padding: .8em;
+            padding-top: .4em;
+            padding-bottom: 1.3em;
+            background-color: rgba(122, 202, 255,
+            .4 );
+            color: black;
+            display: inline-block;
+            margin: auto;
+            transition: all 1s;
+            position: relative;
+            &::after{
+                content: '';
+                background-color: black;
+                position: absolute;
+                bottom: calc(20% - .3em);
+                left: calc(50% - .3em);
+                width: .6em;
+                height: .6em;
+                transform: rotate(0deg);
+                border-radius: 50%;
+                transition: all 1s;
+            }
+            &:active{
+                background-color: $color-base;
+            } 
+            &:hover{
+                background-color: $color-base;
+                cursor:pointer;
+                &::after{
+                    border-radius: 0%;
+                    transform: rotate(45deg);
+                }
+            }
+        }
+    }
+    
+}
+@media all and (orientation: landscape){
+    main{
+        h1{
+            width: 60%;
+        }
+    }
+    #contact{
+        padding: 10em;
+        flex-direction: row;
+        .row{
+            width: 50%;
+            height: 100%;
+        }
+    }
+    @media all and(min-width: 1281px){
+        body{
+            font-size: 1.3vw;
+        }
+    }
+    @media all and(min-width: 700px) and (max-width: 1280px){
+        body{
+            font-size: 2vw;
+        }
+    }
+}
+@media all and (orientation: portrait){
+    @media all and (min-width: 374px){
+        body{
+            font-size: 4.2vw;
+        }
+    }
+    @media all and (min-height: 500px){
+        body{
+            font-size: 4.6vw;
+        } 
+    }
+}
+@media all and (max-width: 350px){
+    body{
+        font-size: 3.5vw;
+    }
+}
+
