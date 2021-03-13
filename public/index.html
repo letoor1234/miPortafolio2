@@ -9,12 +9,15 @@
 </head>
 <body>
     <main>
-        <canvas class='canvas'></canvas>
+        <canvas id='canvas' class='canvas'></canvas>
         <h1>Hi! I'm Angel Martinez and I develop Web Apps</h1>
         <a href="#about" class='down-arrow'></a>
     </main>
-    
-    <nav>
+    <input type="checkbox" id='open-nav'>
+    <nav class='side-nav'>
+        <label for="open-nav">
+            <div class="x-icon">+</div>
+        </label>
         <a href="#about"></a>
         <a href="#skills"></a>
         <a href="#works"></a>
@@ -22,22 +25,171 @@
     </nav>
 
     <section id='about'>
-
+        <div class="data">
+            <h3>About Me</h3>
+            <hr>
+            <p>
+                My name is Angel Martinez and I develop web apps!
+            </p>
+            <p>I live in Argentina. I love the nature and technology, a dream for me is find more and better ways to create eco friendly technologies.</p>
+            <p>At my 19 yo, I found the world of programming, experimenting with Unity3D. A year later, the web programming finds me, fascinating me from the beginning. Since then I have dedicated myself to learning every day about new technologies and good practices in a self-taught way. </p>
+        </div>
         <a href="#skills" class='down-arrow'></a>
     </section>
-
+        
     <section id='skills'>
-
+        <h3 class='first'>
+            Soft skills
+        </h3>
+        <hr>
+        <ul>
+            <li>
+                <p>Positive attitude</p>
+            </li>
+            <li>
+                <p>Honesty</p>
+            </li>
+            <li>
+                <p>Proactivity</p>
+            </li>
+            <li>
+                <p>Fast learning</p>
+            </li>
+            <li>
+                <p>Good manners</p>
+            </li>
+            <li>
+                <p>Focused on results</p>
+            </li>
+            
+        </ul>
+        <h3 class='second'>
+            Hard skills
+        </h3>
+        <hr>
+        <div class='hard'>
+            <article class='hard-skill' id='html'>
+                <p>HTML5</p>
+                <p>Semantic HTML, SCSS, Flexbox, Grid layout, Responsive design, js authentications, DOM manipulation</p>
+            </article>
+            <article class='hard-skill' id='react'>
+                <p>React.js</p>
+                <p>API consume, class components, functionalities, react-router-dom, building</p>
+            </article>
+            <article class='hard-skill' id='node'>
+                <p>Node.js</p>
+                <p>Passport, bCrypt, CORS, Socket.io, Mongoose, Express.js, API Restful development</p>
+            </article>
+            <article class='hard-skill' id='mongo'>
+                <p>MongoDB</p>
+                <p>Mongoose, Create databases, create, update and delete objects and collections, deploy MongoDB Atlas</p>
+            </article>
+            <article class='hard-skill' id='php'>
+                <p>PHP</p>
+                <p>Get, post, put, delete queries, functionalities</p>
+            </article>
+            <article class='hard-skill' id='mysql'>
+                <p>MySQL</p>
+                <p>Xampp, phpMyAdmin</p>
+            </article>
+            <article class='hard-skill' id='git'>
+                <p>Git & Github</p>
+                <p>Git flow, upstream, clone remotes, etc</p>
+            </article>
+        </div>
+        <h3 class='third'>
+            Learning...
+        </h3>
+        <hr>
+        <div class='learn'>
+            <article>
+                <h5>React Redux</h5>
+            </article>
+            <article>
+                <h5>AWS Lambda</h5>
+            </article>
+            <article>
+                <h5>React Hooks</h5>
+            </article>
+        </div>
         <a href="#works" class='down-arrow'></a>
     </section>
 
     <section id='works'>
-
+        <h3>My works</h3>
+        <hr>
+        <div class="works">
+            <article class='project' id='realtchat'>
+                <h3>Realtime chat</h3>
+                <p>Using socket.io from server side for send automatic response to the client side.</p>
+                <nav>
+                    <a class='web-link'href="https://sio-realtime-chat.herokuapp.com/"></a>
+                    <a class='git-link'href="https://github.com/letoor1234/soket.io-react-chat"></a>
+                </nav>
+            </article>
+            <article class='project' id='poster'>
+                <h3>postER!</h3>
+                <p>Register and login hashed using bCrypt, session with Passport, posting (like twitter) and follow/un-follow friends with Express and MongoDB. User interface with React.js
+                </p>
+                <nav>
+                    <a class='web-link'href="https://mern-poster.herokuapp.com"></a>
+                    <a class='git-link'href="https://github.com/letoor1234/mern-poster"></a>
+                </nav>
+            </article>
+            <article class='project' id='reglog'>
+                <h3>regLog.js</h3>
+                <p>My first try with MERN stack! (MongoDB, Express, Node.js, React.js) Simple registration and login using passport session.</p>
+                <nav>
+                    <a class='git-link'href="https://github.com/letoor1234/reglog-mern"></a>
+                </nav>
+            </article>
+            <article class='project' id='cleanmemesearcher'>
+                <h3>Clean Meme Searcher</h3>
+                <p>This was my first practice of API consume with fetch in React.js</p>
+                <nav>
+                    <a class='web-link'href="https://cleanmemesearch.web.app/"></a>
+                    <a class='git-link'href="https://github.com/letoor1234/clean-meme-generator/tree/develop"></a>
+                </nav>
+            </article>
+            <article class='project' id='the8a'>
+                <h3>Technical Test</h3>
+                <p>A task for convert a PS design into HTML5</p>
+                <nav>
+                    <a class='web-link'href="https://trylayoutfrompstohtml.web.app/"></a>
+                    <a class='git-link'href="https://github.com/letoor1234/frontend-test-the8a"></a>
+                </nav>
+            </article>
+            <article class='project' id='myportfolio'>
+                <h3>My portfolio</h3>
+                <p>I developed this without frameworks. Just HTML, SCSS & Vanilla Javascript</p>
+                <nav>
+                    <a class='git-link'href="https://github.com/letoor1234/miPortfolio"></a>
+                </nav>
+            </article>
+        </div>
         <a href="#contact" class='down-arrow'></a>
     </section>
 
     <section id='contact'>
-
+        <div class='row'>
+            <a href="https://www.linkedin.com/in/angel-martinez-wb/">
+                LinkedIn
+            </a>
+            <a href="https://github.com/letoor1234">
+                GitHub
+            </a>
+        </div>
+        <div class='row'>
+            <a href="mailto:angelmartinezwb@gmail.com">
+                eMail
+            </a>
+            <a href="https://drive.google.com/file/d/1hChFmehD-S8-cb6pjK-9H_v2WGMsavpn/view?usp=sharing">
+                Resume
+            </a>
+        </div>
     </section>
+
+    <script src="js/mainCanvas.js"></script>
+    <script src="js/mobileSupport.js"></script>
 </body>
 </html>
