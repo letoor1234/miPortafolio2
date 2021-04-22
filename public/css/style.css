@@ -437,6 +437,10 @@ main h1 {
   left: 100%;
 }
 
+#works .works #connectnow::after {
+  background-image: url("../rsc/jobs/connectnow.png");
+}
+
 #works .works #realtchat::after {
   background-image: url("../rsc/jobs/soketchat.png");
 }

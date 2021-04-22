@@ -389,6 +389,9 @@ main{
                 }
             }
         }
+        #connectnow::after{
+            background-image: url('../rsc/jobs/connectnow.png');
+        }
         #realtchat::after{
             background-image: url('../rsc/jobs/soketchat.png');           
         }
